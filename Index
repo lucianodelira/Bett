@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0N3WWWQ7V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V0N3WWWQ7V');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; frame-src *; connect-src *;">
+    <title>APP ACERTOS.CLUB - Cadastros novos ganham 30% de bônus na banca</title>
+    <meta name="description" content="Acertos.Club Oficial - Cadastros novos ganham 30% de Bônus" />
+    <meta name="keywords" content="acertos club, aplicativo online, rei da milhar" />
+    <link rel="icon" href="acertos.webp" type="image/webp" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f6f8;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #ffffff, #f9fafb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            height: 40px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        header img {
+            height: 30px;
+            margin-right: 8px;
+            transition: transform 0.2s;
+        }
+        header img:hover {
+            transform: scale(1.1);
+        }
+        header h1 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 0.5px;
+        }
+        #main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 60px;
+        }
+        #jogar, #palpites-container, #sobre {
+            width: 100%;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #palpites-container {
+            padding: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+        #palpites, #sobre {
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            opacity: 0;
+        }
+        #palpites.visible, #sobre.visible {
+            opacity: 1;
+        }
+        #sobre {
+            display: none;
+            max-width: 600px;
+            margin: 16px auto;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 100px);
+            border: none;
+            display: block;
+        }
+        footer {
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-top: 1px solid #e0e0e0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            gap: 4px;
+            max-width: 100%;
+        }
+        footer button {
+            background: none;
+            border: none;
+            font-size: 12px;
+            font-weight: 500;
+            color: #444;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 50px;
+            min-height: 44px;
+            flex: 1;
+            justify-content: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        footer button:hover, footer button:active {
+            color: #222;
+            background: #f1f3f5;
+        }
+        footer button:active {
+            transform: scale(0.95);
+        }
+        select, input, button:not(footer button) {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            font-size: 14px;
+            width: 100%;
+            margin: 8px 0;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+        }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23444' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-6-6L3.5 4l4.5 4.5L12.5 4 14 5.5l-6 6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+        input[type="text"], input[type="tel"], input[type="number"] {
+            appearance: none;
+        }
+        select:focus, input:focus, button:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+            outline: none;
+        }
+        button:not(footer button) {
+            background: #f59e0b;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:not(footer button):hover {
+            background: #d97706;
+        }
+        button:not(footer button):active {
+            transform: scale(0.98);
+        }
+        button.green {
+            background: #10b981;
+        }
+        button.green:hover {
+            background: #059669;
+        }
+        button:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            transform: none;
+        }
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+        .section:hover {
+            transform: translateY(-2px);
+        }
+        .palpite-result, .puxadas, .sobre-content, .bancas-parceiras-content {
+            margin: 12px 0;
+            padding: 16px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+        .sobre-content img, .bancas-parceiras-content img {
+            display: block;
+            margin: 0 auto 12px;
+            max-width: 200px;
+            height: auto;
+        }
+        .milhares {
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        h2 {
+            color: #f59e0b;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        h3 {
+            color: #374151;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin: 0;
+            font-size: 14px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: #ef4444;
+            font-size: 14px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #fef2f2;
+            border-radius: 6px;
+        }
+        .success {
+            color: #10b981;
+            font-size: 14px;
+            margin: 10px 0;
+            padding: 10px;
+            background: #ecfdf5;
+            border-radius: 6px;
+        }
+        .loading {
+            font-size: 14px;
+            color: #374151;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .loading::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f59e0b;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            #palpites-container, #sobre {
+                padding: 12px;
+            }
+            #palpites, #sobre {
+                max-width: 100%;
+            }
+            header {
+                padding: 6px 12px;
+            }
+            header img {
+                height: 28px;
+            }
+            header h1 {
+                font-size: 14px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            h3 {
+                font-size: 15px;
+            }
+            select, input, button:not(footer button) {
+                font-size: 13px;
+                padding: 10px;
+            }
+            footer {
+                padding: 8px;
+                height: 48px;
+                gap: 4px;
+            }
+            footer button {
+                font-size: 10px;
+                padding: 6px 8px;
+                min-width: 50px;
+                flex-shrink: 1;
+            }
+            iframe {
+                height: calc(100vh - 90px);
+            }
+            table {
+                font-size: 13px;
+            }
+            th, td {
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ACERTOS CLUB OFICIAL</h1>
+    </header>
+
+    <div id="main-content">
+        <div id="jogar">
+            <iframe id="embeddedIframe" allow="clipboard-read; clipboard-write" src="https://app.acertos.club/pr/qcGoRMK0" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-read allow-clipboard-write"></iframe>
+        </div>
+        <div id="palpites-container">
+            <div id="palpites">
+                <div class="section">
+                    <h2>Banca Parceira</h2>
+                    <div class="bancas-parceiras-content">
+                        <img src="feiticeira.png" alt="Feiticeira Vip" />
+                        <button onclick="window.open('https://www.feiticeiravip.com.br', '_blank')" class="purple">Banca Feiticeira Vip</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Gerar Palpites</h2>
+                    <label for="bancaSelect">Escolha a Banca:</label>
+                    <select id="bancaSelect">
+                        <option value="">Selecione uma banca</option>
+                        <option value="PT Rio">PT Rio</option>
+                        <option value="Look GO">Look GO</option>
+                        <option value="Nacional">Nacional</option>
+                        <option value="Maluca BA">Maluca BA</option>
+                        <option value="Lotep">Lotep</option>
+                    </select>
+                    <button id="gerarPalpites" disabled>Gerar Palpites</button>
+                    <div class="palpite-result" id="palpiteOutput"></div>
+                </div>
+                <div class="section">
+                    <h2>Consultar Puxadas</h2>
+                    <label for="animalSelect">Escolha um Animal:</label>
+                    <select id="animalSelect">
+                        <option value="">Selecione um animal</option>
+                    </select>
+                    <button id="verPuxada" class="hidden">Ver Puxadas</button>
+                    <div class="puxadas" id="puxadaResult"></div>
+                </div>
+            </div>
+        </div>
+        <div id="sobre">
+            <div class="section">
+                <h2>Sobre</h2>
+                <div class="sobre-content">
+                    <img src="acertos.webp" alt="Acertos Club" />
+                    <p>Nosso aplicativo oferece bônus incríveis:</p>
+                    <ul>
+                        <li>30% de bônus para novos cadastros com depósitos de até 100 reais.</li>
+                        <li>15% de bônus nos dias de federais no primeiro depósito.</li>
+                        <li>10% de bônus em dias normais no primeiro depósito.</li>
+                    </ul>
+                    <h3>Cotação</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Valor (R$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Unidade</td><td>8,00</td></tr>
+                            <tr><td>Grupo</td><td>20,00</td></tr>
+                            <tr><td>Dezena</td><td>80,00</td></tr>
+                            <tr><td>Centena</td><td>800,00</td></tr>
+                            <tr><td>Milhar</td><td>8.000,00</td></tr>
+                            <tr><td>Duque GP</td><td>180,00</td></tr>
+                            <tr><td>Terno GP</td><td>1.500,00</td></tr>
+                            <tr><td>Quadra GP</td><td>1.000,00</td></tr>
+                            <tr><td>Quina GP (8/5)</td><td>1.000,00</td></tr>
+                            <tr><td>Sena GP (10/6)</td><td>1.000,00</td></tr>
+                            <tr><td>Duque Dez</td><td>300,00</td></tr>
+                            <tr><td>Terno Dez Seco</td><td>10.000,00</td></tr>
+                            <tr><td>Terno Dez</td><td>5.000,00</td></tr>
+                            <tr><td>Passe Vai</td><td>90,00</td></tr>
+                            <tr><td>Passe Vai Vem</td><td>45,00</td></tr>
+                        </tbody>
+                    </table>
+                    <h3>Políticas e Privacidade</h3>
+                    <div class="sobre-content">
+                        <p><strong>Política de Privacidade</strong></p>
+                        <p>No Acertos Club, protegemos seus dados pessoais com o mais alto padrão de segurança. Coletamos apenas informações necessárias para oferecer nossos serviços. Esses dados não são compartilhados com terceiros, exceto quando exigido por lei ou com seu consentimento explícito. Usamos cookies para melhorar a experiência do usuário, mas você pode desativá-los nas configurações do navegador.</p>
+                        <p><strong>Termos de Uso</strong></p>
+                        <p>Ao usar o Acertos Club, você concorda em cumprir nossas regras. Nosso serviço é destinado a maiores de 18 anos, e o uso indevido, como tentativa de fraude, resultará em suspensão da conta. Os bônus são creditados conforme as regras promocionais e não podem ser transferidos. Nos reservamos o direito de atualizar estes termos a qualquer momento, com notificação prévia aos usuários.</p>
+                        <p>Para dúvidas, entre em contato pelo nosso suporte no WhatsApp: <a href="https://api.whatsapp.com/send?phone=+558393209139&text=Ol%C3%A1,%20preciso%20de%20ajuda">+55 83 9320-9139</a>.</p>
+                        <button onclick="window.open('https://www.feiticeiravip.com.br', '_blank')" class="mt-4">Banca Feiticeira Vip</button>
+                        <button onclick="window.open('https://bancabrasileira.net.br', '_blank')" class="mt-4">Banca Brasileira</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="window.open('https://api.whatsapp.com/send?phone=+558393209139&text=Ol%C3%A1,%20preciso%20de%20ajuda', '_blank')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M13.6 2.4A8 8 0 0 0 0 8c0 1.8.6 3.5 1.7 4.9L1 15l2.1-.7A8 8 0 0 0 8 16c4.4 0 8-3.6 8-8a8 8 0 0 0-2.4-5.6zM8 14.5a6.5 6.5 0 0 1-3.7-1.1l-.3-.1-.7.2-1.2.4.4-1.2.2-.7-.1-.3A6.5 6.5 0 0 1 8 1.5a6.5 6.5 0 0 1 6.5 6.5A6.5 6.5 0 0 1 8 14.5zm2.3-4.7c-.1 0-.2 0-.3-.1-.2-.1-1-.5-1.2-.6-.2-.1-.4-.2-.5-.3-.2-.1-.3-.2-.5-.4-.1-.2-.2-.4-.3-.6-.1-.2-.1-.4-.2-.5 0-.1-.1-.2-.2-.3-.1-.1-.2-.2-.3-.3-.1-.1-.2-.2-.3-.3-.1-.1-.2-.2-.1-.3.1-.1.2-.3.3-.4.1-.1.2-.2.3-.3.1-.1.1-.2.1-.3s0-.2-.1-.3c-.1-.1-.2-.3-.3-.4-.1-.1-.2-.2-.4-.2H6.8c-.2 0-.4 0-.5.1-.1 0-.2.1-.3.2-.1.1-.2.2-.3.3-.1.2-.2.4-.2.6 0 .2 0 .4.1.6.1.2.2.4.3.6.1.2.3.4.5.6.2.2.4.4.7.6.3.2.6.4 1 .5.3.1.7.2 1.1.2h.3c.2 0 .4-.1.6-.2.2-.1.3-.2.4-.4.1-.2.1-.4.1-.6 0-.2-.1-.3-.2-.4z"/>
+            </svg>
+            Suporte
+        </button>
+        <button onclick="window.open('https://app.acertos.club/pr/qcGoRMK0', '_blank')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13zM8 4a1 1 0 0 0-1 1v3.6l-2.3-2.3a1 1 0 0 0-1.4 1.4l3 3a1 1 0 0 0 1.4 0l3-3a1 1 0 0 0-1.4-1.4L9 8.6V5a1 1 0 0 0-1-1z"/>
+            </svg>
+            Cassino
+        </button>
+        <button onclick="mostrar('jogar')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13zM6 5l4 3-4 3V5z"/>
+            </svg>
+            Jogar
+        </button>
+        <button onclick="mostrar('palpites')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13zM8 4a1 1 0 0 0-1 1v5a1 1 0 0 0 2 0V5a1 1 0 0 0-1-1z"/>
+            </svg>
+            Palpites
+        </button>
+        <button onclick="mostrar('sobre')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13zM8 11.5a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1 0-1.5h.5a.75.75 0 0 1 .75.75zm0-2a.75.75 0 0 1-.75.75h-.5a.75.75 0 0 1 0-1.5h.5a.75.75 0 0 1 .75.75zm.75-3.25a.75.75 0 0 1-1.5 0 .25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5a1.75 1.75 0 0 1 1.75 1.75z"/>
+            </svg>
+            SAIBA MAIS
+        </button>
+    </footer>
+
+    <script>
+        try {
+            const animals = [
+                { name: 'Avestruz', emoji: '🦢', group: 1, tens: ['01', '02', '03', '04'] },
+                { name: 'Águia', emoji: '🦅', group: 2, tens: ['05', '06', '07', '08'] },
+                { name: 'Burro', emoji: '🦙', group: 3, tens: ['09', '10', '11', '12'] },
+                { name: 'Borboleta', emoji: '🦋', group: 4, tens: ['13', '14', '15', '16'] },
+                { name: 'Cachorro', emoji: '🐶', group: 5, tens: ['17', '18', '19', '20'] },
+                { name: 'Cabra', emoji: '🐐', group: 6, tens: ['21', '22', '23', '24'] },
+                { name: 'Carneiro', emoji: '🐏', group: 7, tens: ['25', '26', '27', '28'] },
+                { name: 'Camelo', emoji: '🐪', group: 8, tens: ['29', '30', '31', '32'] },
+                { name: 'Cobra', emoji: '🐍', group: 9, tens: ['33', '34',
