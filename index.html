@@ -352,8 +352,44 @@
             }
             th, td {
                 padding: 6px;
+       
             }
+
+
+
+
+  /* IFRAME SOBREPOSTO AO SITE INTEIRO */
+  #embeddedIframe {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    display: block !important;
+    z-index: 2147483647 !important;
+    background: #000 !important;
+  }
+
+  /* Remove margens e rolagem da página externa */
+  html,
+  body {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+            
         }
+
+        
+        
     </style>
 </head>
 <body>
